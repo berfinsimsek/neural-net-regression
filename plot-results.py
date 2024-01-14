@@ -1,4 +1,5 @@
 import numpy as np
+import os
 import matplotlib.pyplot as plt
 from matplotlib import cm
 from matplotlib import colors
@@ -9,7 +10,9 @@ jl.seval('using Pkg; Pkg.add(url = "https://github.com/jbrea/MLPGradientFlow.jl.
 jl.seval('using MLPGradientFlow');
 mg=jl.MLPGradientFlow
 
-root_path="/Users/simsek/Desktop/TS"
+root_path="/Users/simsek/Documents/GitHub/neural-net-regression"
+if not os.path.exists(root_path+'/figs'):
+    os.makedirs(root_path+'/figs')
 
 def res_to_param(res):
     num_neurons = res["x"]["w1"].shape[0]
@@ -29,7 +32,7 @@ def res_to_param(res):
 num_student=30
 regime="CC" # "CA" or "CC"
 num_teacher=50
-seed_id=1
+seed_id=3
 file_name=root_path+"/data/erf-stud={:d}-teach={:d}-seed={:d}.pkl".format(num_student, num_teacher, seed_id)
 res=mg.unpickle(file_name)
 

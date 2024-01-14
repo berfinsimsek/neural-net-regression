@@ -1,4 +1,6 @@
 import numpy as np
+import os
+from helper import *
 import matplotlib.pyplot as plt
 import juliacall as jc
 from juliacall import Main as jl
@@ -10,19 +12,18 @@ jl.seval('using Pkg; Pkg.add(url = "https://github.com/jbrea/MLPGradientFlow.jl.
 jl.seval('using MLPGradientFlow');
 mg=jl.MLPGradientFlow
 
+root_path="/Users/simsek/Documents/GitHub/neural-net-regression"
+if not os.path.exists(root_path+'/figs'):
+    os.makedirs(root_path+'/figs')
+
 num_teacher=50
 num_seeds=20
 epsilon1=2
 epsilon2=0.1
 gnorm_cut=1e-8
 
-root_path="/Users/simsek/Desktop/TS"
-
 for num_student in range(1, num_teacher+1):
     print("num student:", num_student, " num teacher:", num_teacher)
-
-    def optim_loss_erf(x):
-         return (x*np.arcsin(1/2) - x**2*np.arcsin(1/(2*x)))*2/np.pi
 
     plt.axhline(y=0, linestyle='dashed', color='gray')
     plt.axhline(y=optim_loss_erf(num_teacher-num_student+1), linestyle='dashed', color='red')

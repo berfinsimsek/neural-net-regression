@@ -1,5 +1,8 @@
 import numpy as np
 
+def optim_loss_erf(x):
+         return (x*np.arcsin(1/2) - x**2*np.arcsin(1/(2*x)))*2/np.pi
+         
 def permute_CA(angles, norms, outgoing_weights):
     n = angles.shape[1]
     d = angles.shape[0]
