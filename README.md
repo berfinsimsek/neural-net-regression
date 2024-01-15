@@ -16,7 +16,7 @@ activation function and standard Gaussian input data (https://arxiv.org/abs/2311
 
 ## Dependencies
 
-To visualize the results using Python as done in this repo. 
+To visualize the results using Python as done in this repo, need to install
 
 * juliacall
 * numpy
