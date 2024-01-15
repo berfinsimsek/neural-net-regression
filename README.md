@@ -28,7 +28,7 @@ We find that gradient flow converges to either one of two minima depending on th
 
 We plot the results for $n=25$ and $k=50$ below.
 
-<img width="777" alt="configs" src="https://github.com/berfinsimsek/neural-net-regression/assets/37277437/5b1d97ed-900f-4f9c-a23d-e85d547fe343">
+<img width="798" alt="configs" src="https://github.com/berfinsimsek/neural-net-regression/assets/37277437/bf4a51bc-7539-4ac6-a7e8-b8cf6a1351a2">
 
 ![loss_curves_25stud_50teach](https://github.com/berfinsimsek/neural-net-regression/assets/37277437/96eed74e-207b-457a-b908-c698849c84fe)
 
