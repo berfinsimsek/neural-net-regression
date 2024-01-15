@@ -29,10 +29,10 @@ def res_to_param(res):
         outgoing_weights[i] = res["x"]["w2"][0, i]
     return angles, norms, outgoing_weights
 
-num_student=30
-regime="CC" # "CA" or "CC"
+num_student=25
+regime="CA" #"CA" or "PC"
 num_teacher=50
-seed_id=3
+seed_id=4
 file_name=root_path+"/data/erf-stud={:d}-teach={:d}-seed={:d}.pkl".format(num_student, num_teacher, seed_id)
 res=mg.unpickle(file_name)
 
@@ -42,7 +42,7 @@ neuron_ids = np.linspace(1, num_student, num_student)
 fig, ax = plt.subplots(3, figsize=(3,6), height_ratios=[1, 1, 1], constrained_layout = True)
 divnorm=colors.TwoSlopeNorm(vmin=-1.0, vcenter=0.0, vmax=1.0)
 
-if(regime=="CC"):
+if(regime=="PC"):
     angles_perm, norms_perm, outgoing_weights_perm = permute_CC(angles, norms, outgoing_weights)
 if(regime=="CA"):
     angles_perm, norms_perm, outgoing_weights_perm = permute_CA(angles, norms, outgoing_weights)
@@ -59,7 +59,7 @@ ax[1].set_title('norms', fontsize=10)
 ax[2].bar(neuron_ids, outgoing_weights_perm, color ='blue', alpha=0.7,  width = 0.4, label='$r_i$')
 ax[2].set_title('outgoing weights', fontsize=10)
 
-if(regime=="CC"):
+if(regime=="PC"):
     ax[1].axhline(y=1, linewidth=1, linestyle='dashed', color='gray')
     ax[2].axhline(y=1, linewidth=1, linestyle='dashed', color='gray')
     ax[2].axhline(y=-1, linewidth=1, linestyle='dashed', color='gray')

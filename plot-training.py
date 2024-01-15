@@ -24,9 +24,7 @@ gnorm_cut=1e-8
 
 for num_student in range(1, num_teacher+1):
     print("num student:", num_student, " num teacher:", num_teacher)
-
-    plt.axhline(y=0, linestyle='dashed', color='gray')
-    plt.axhline(y=optim_loss_erf(num_teacher-num_student+1), linestyle='dashed', color='red')
+    H=num_teacher-num_student+1
 
     gnorms=np.zeros(num_seeds)
     losses=np.zeros(num_seeds)
@@ -38,9 +36,12 @@ for num_student in range(1, num_teacher+1):
          gnorms[seed_id-1]=res['gnorm']
          losses[seed_id-1]=res['loss_curve'][-1]
 
+    plt.axhline(y=0, linestyle='dashed', linewidth=1, alpha=0.5, color='gray')
+    plt.axhline(y=optim_loss_erf(H), linestyle='dashed', linewidth=1, alpha=0.5, color='red', label='CA optimum')
     plt.ylabel('loss')
+    plt.xlabel('itr')
     plt.title('n={:02}'.format(num_student))
-    plt.ylim(-epsilon2, optim_loss_erf(num_teacher-num_student+1)+epsilon1)
+    plt.ylim(-epsilon2, optim_loss_erf(H)+epsilon1)
     plt.savefig(root_path+'/figs/loss_curves_{:d}stud_{:d}teach.png'.format(num_student, num_teacher), dpi=500)
     plt.close()
 
