@@ -8,7 +8,7 @@ activation function and standard Gaussian input data (https://arxiv.org/abs/2311
 ## Files
 
 * This file README.md
-* Simulation file ```???```
+* Simulation file ```erf50/erf_sims.jl```
 * Script to see the loss curves and gradient norms ```plot-training.py```
 * Script to see the summary of training ```plot-training-summary.py``` for all widths
 * Script to visualize the weights at convergence ```plot-results.py```
