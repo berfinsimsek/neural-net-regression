@@ -13,3 +13,9 @@ activation function and standard Gaussian input data (https://arxiv.org/abs/2311
 * Script to see the summary of training ```plot-training-summary.py``` for all widths
 * Script to visualize the weights at convergence ```plot-results.py```
 * Helper functions ```helper.py```
+
+## Results 
+
+
+
+Jan 15, 2024
