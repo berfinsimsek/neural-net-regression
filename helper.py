@@ -2,7 +2,22 @@ import numpy as np
 
 def optim_loss_erf(x):
          return (x*np.arcsin(1/2) - x**2*np.arcsin(1/(2*x)))*2/np.pi
-         
+
+def res_to_param(res, num_teacher):
+    num_neurons = res["x"]["w1"].shape[0]
+    #input_dim = res["x"]["w1"].shape[1]
+    angles = np.zeros((num_teacher, num_neurons))
+    norms = np.zeros(num_neurons)
+    outgoing_weights = np.zeros(num_neurons)
+    for i in range(num_neurons):
+        incoming_weight = np.zeros(num_teacher)
+        for j in range(num_teacher):
+            incoming_weight[j] = res["x"]["w1"][i, j]
+        angles[:, i] =  incoming_weight / np.linalg.norm(incoming_weight)
+        norms[i] = np.linalg.norm(incoming_weight)
+        outgoing_weights[i] = res["x"]["w2"][0, i]
+    return angles, norms, outgoing_weights
+
 def permute_CA(angles, norms, outgoing_weights):
     n = angles.shape[1]
     d = angles.shape[0]

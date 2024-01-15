@@ -14,29 +14,14 @@ root_path="/Users/simsek/Documents/GitHub/neural-net-regression"
 if not os.path.exists(root_path+'/figs'):
     os.makedirs(root_path+'/figs')
 
-def res_to_param(res):
-    num_neurons = res["x"]["w1"].shape[0]
-    input_dim = res["x"]["w1"].shape[1]
-    angles = np.zeros((input_dim, num_neurons))
-    norms = np.zeros(num_neurons)
-    outgoing_weights = np.zeros(num_neurons)
-    for i in range(num_neurons):
-        incoming_weight = np.zeros(input_dim)
-        for j in range(input_dim):
-            incoming_weight[j] = res["x"]["w1"][i, j]
-        angles[:, i] =  incoming_weight / np.linalg.norm(incoming_weight)
-        norms[i] = np.linalg.norm(incoming_weight)
-        outgoing_weights[i] = res["x"]["w2"][0, i]
-    return angles, norms, outgoing_weights
-
 num_student=25
-regime="CA" #"CA" or "PC"
+regime="PC" #"CA" or "PC"
 num_teacher=50
-seed_id=4
+seed_id=1
 file_name=root_path+"/data/erf-stud={:d}-teach={:d}-seed={:d}.pkl".format(num_student, num_teacher, seed_id)
 res=mg.unpickle(file_name)
 
-angles, norms, outgoing_weights = res_to_param(res)
+angles, norms, outgoing_weights = res_to_param(res, num_teacher)
 neuron_ids = np.linspace(1, num_student, num_student)
 
 fig, ax = plt.subplots(3, figsize=(3,6), height_ratios=[1, 1, 1], constrained_layout = True)
