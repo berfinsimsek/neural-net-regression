@@ -14,6 +14,14 @@ activation function and standard Gaussian input data (https://arxiv.org/abs/2311
 * Script to visualize the weights at convergence ```plot-results.py```
 * Helper functions ```helper.py```
 
+## Dependencies
+
+To visualize the results using Python as done in this repo. 
+
+* juliacall
+* numpy
+* matplotlib 
+
 ## Results 
 
 
