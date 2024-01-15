@@ -24,6 +24,7 @@ To visualize the results using Python as done in this repo.
 
 ## Results 
 
+![loss curves][https://drive.google.com/drive/u/0/folders/13my_Cvo6i_MP96oDw7KxUS_kUPvGAbsu]
 
 
 Jan 15, 2024
