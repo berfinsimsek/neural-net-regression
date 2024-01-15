@@ -8,5 +8,5 @@ activation function and standard Gaussian input data (https://arxiv.org/abs/2311
 ## Files
 
 * This file README.md
-* Simulation file
+* Simulation file ```???```
 * A script to see the loss curves and gradient norms ```plot-training.py```
