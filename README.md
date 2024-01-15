@@ -24,7 +24,7 @@ To visualize the results using Python as done in this repo.
 
 ## Results 
 
-![loss curves][https://drive.google.com/drive/u/0/folders/13my_Cvo6i_MP96oDw7KxUS_kUPvGAbsu]
+![loss_curves_25stud_50teach](https://github.com/berfinsimsek/neural-net-regression/assets/37277437/96eed74e-207b-457a-b908-c698849c84fe)
 
 
 Jan 15, 2024
